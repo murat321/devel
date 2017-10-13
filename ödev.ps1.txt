@@ -1,0 +1,34 @@
+	"Write-output "tcp-udp baðlantýlarýný getir">>poweshell.txt
+netstat -a
+
+	"Write-Output">>powershell.txt -bios bilgilerini getir. 
+Get-WmiObject -Claas Win32_Býos -ComputerName
+
+	"Write-Output">>powershell.txt masaüstü ayarlarýný getir.
+Get-WmiObject -Class Win32_Desktop -ComputerName .
+
+	"Write-Output">>powershell.txt  -IP yönlendirme tablosunun içeriðini getir.
+netstat -r
+
+	"Write-Output">>powershell.txt - iþlemci bilgisini verir.
+Get-WmiObject -Class Win32_Processor -ComputerName . | Select-Object -Property [a-z]*
+
+	"Write-Output">>powershell.txt - iþletim sistemi sürüm bilgisini verir.
+Get-WmiObject -Class Win32_OperatingSystem -ComputerName . | Select-Object -Property BuildNumber,BuildType,OSType,ServicePackMajorVersion,ServicePackMinorVersion
+
+	"Write-Output">>powershell.txt - kullanýcý bilgisini verir.
+Get-WmiObject -Class Win32_OperatingSystem -ComputerName . | Select-Object -Property NumberOfLicensedUsers,NumberOfUsers,RegisteredUser
+
+	"Write-Output">>powershell.txt - domain,ram miktarý ve üretici firma bilgisini verir. 
+Get-WmiObject –Class win32_computersystem
+
+	"Write-Output">>powershell.txt - oturumu açýk kullanýcýlarý listeler.
+Get-WmiObject -Class Win32_LogonSession -ComputerName . --
+
+	"Write-Output">>powershell.txt - schedule taslaðýný getir.
+schtasks | Where-Object { $_ -Match "Ready*" -or $_ -Match "Running*"}
+
+	"Write-Output">>powershell.txt - grup hakkýnda bilgileri verir.
+get-wmiobject win32_group
+
+	"Write-Output">>powershell.txt - yerel kullanýcýlarý listele.
